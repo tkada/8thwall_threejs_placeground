@@ -1,1 +1,28 @@
+# Dependencies
+node_modules/
+
+# Local HTTPS dev certs (npm run cert / serve:https)
 *.pem
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE (uncomment if you do not share IDE settings in-repo)
+# .vscode/
+# .idea/
+
+# Optional build output (if added later)
+# dist/
+# build/

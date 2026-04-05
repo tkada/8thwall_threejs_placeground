@@ -25,14 +25,16 @@
     </script>
 
     <!-- Javascript tweening engine -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
 
-    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
-         See github.com/8thwall/web/tree/master/xrextras -->
+    <!-- XR Extras: required by index.js (pipeline modules and XRExtras.Loading). Omitting it blocks XR8.run. -->
+    <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js" crossorigin="anonymous"></script>
+
+    <!-- 8th Wall Engine (SLAM). See https://8thwall.org/docs/engine/overview -->
     <script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" async crossorigin="anonymous" data-preload-chunks="slam"></script>
 
-    <!-- client code -->
-    <script src="index.js"></script>
+    <!-- defer: run after the importmap THREE module so window.THREE exists -->
+    <script defer src="index.js"></script>
   </head>
 
   <body>

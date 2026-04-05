@@ -162,9 +162,22 @@ const onxrloaded = () => {
   ])
 
   // Open the camera and start running the camera run loop.
-  XR8.run({canvas: document.getElementById('camerafeed')})
+  XR8.run({
+    canvas: document.getElementById('camerafeed'),
+    allowedDevices: XR8.XrConfig.device().ANY,
+  })
 }
 
-// Show loading screen before the full XR library has been loaded.
-const load = () => { XRExtras.Loading.showLoading({onxrloaded}) }
-window.onload = () => { window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load) }
+// Start once XRExtras and XR8 are both ready, regardless of load order (guarded against duplicate events).
+let experienceStarted = false
+const startExperience = () => {
+  if (experienceStarted || !window.XRExtras || !window.XR8) {
+    return
+  }
+  experienceStarted = true
+  XRExtras.Loading.showLoading({onxrloaded})
+}
+
+window.addEventListener('xrextrasloaded', startExperience)
+window.addEventListener('xrloaded', startExperience)
+window.addEventListener('load', startExperience)

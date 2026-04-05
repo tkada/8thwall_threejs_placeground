@@ -1,0 +1,11 @@
+{
+  "name": "8thwall-threejs-placeground",
+  "private": true,
+  "scripts": {
+    "cert": "openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem -subj \"/CN=localhost\"",
+    "serve:https": "sh -c '([ -f cert.pem ] && [ -f key.pem ]) || npm run cert' && http-server . -S -C cert.pem -K key.pem -a 0.0.0.0"
+  },
+  "devDependencies": {
+    "http-server": "14.1.1"
+  }
+}

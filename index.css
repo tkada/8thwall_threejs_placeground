@@ -1,7 +1,14 @@
+html,
 body {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  margin: -1px 0px 0px 0px !important;
+  margin: 0;
   padding: 0;
+}
+
+#camerafeed {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
