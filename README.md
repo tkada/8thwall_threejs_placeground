@@ -1,8 +1,14 @@
 # 8th Wall + three.js — tap to place
 
+[Live Demo](https://tkada.github.io/8thwall_threejs_placeground/)
+
+![](https://github.com/8thwall/web/blob/master/images/screenshot-tap.jpg?raw=true)
+
 Web AR sample: tap the ground plane to spawn a scaled-up `tree.glb` with tweened animation. It uses **8th Wall Engine** (SLAM / world tracking), **three.js**, **XRExtras** (loading UI, fullscreen canvas, errors), and **tween.js**.
 
 Integration follows the [8th Wall Engine overview](https://8thwall.org/docs/engine/overview) (Camera Pipeline Module API + `XR8.run`).
+
+**Upstream example:** The core sample (`index.html`, `index.js`, `index.css`, `tree.glb`, and the tap-to-place behavior) is derived from the official 8th Wall Web repo: [examples/threejs/placeground](https://github.com/8thwall/web/tree/master/examples/threejs/placeground). This project adds local HTTPS tooling, GitHub Pages deployment, and other adjustments on top of that baseline.
 
 ## Requirements
 
@@ -63,5 +69,3 @@ On **touchstart**, a `THREE.Raycaster` hits a horizontal shadow plane at Y=0. A 
 
 - [8th Wall Engine — Overview](https://8thwall.org/docs/engine/overview)
 - [Camera Pipeline Module API](https://8thwall.org/docs/api/engine/camerapipelinemodule) (linked from the overview)
-
-Legacy hosted-template demo (may differ from this repo): [templates.8thwall.app/placeground-threejs](https://templates.8thwall.app/placeground-threejs)
