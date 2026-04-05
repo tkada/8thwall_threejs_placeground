@@ -28,6 +28,24 @@ npm run cert
 
 Use the **LAN IP** shown in the terminal (not `127.0.0.1`). You may need to trust the self-signed certificate on the device. See the [Engine overview — Test on Mobile](https://8thwall.org/docs/engine/overview) section for HTTPS notes.
 
+## GitHub Pages
+
+This repo ships a static site (`index.html` and assets at the root). Deploy with **GitHub Actions**:
+
+1. In the GitHub repo, open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. Push to `main` (or run the workflow manually under **Actions**). The workflow file is [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml).
+
+After a successful run, the site is available at:
+
+`https://<your-username>.github.io/<repository-name>/`
+
+Example: `https://tkada.github.io/8thwall_threejs_placeground/`
+
+Relative asset paths (`index.js`, `tree.glb`) work on project Pages without extra configuration. A [`.nojekyll`](.nojekyll) file disables Jekyll so nothing strips or mis-serves static files.
+
+**Note:** AR still needs a supported browser and may be subject to 8th Wall / camera policies on third-party origins; GitHub Pages provides HTTPS, which satisfies the usual secure-context requirement for camera access.
+
 ## Project layout
 
 | File        | Role |
